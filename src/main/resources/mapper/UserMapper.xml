@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mcug.minichat.entrance.mapper.UserMapper">
+    <insert id="insertUser">
+        insert into user(user_id, user_name, user_password)
+        values (#{userId}, #{userName}, #{userPassword})
+    </insert>
+    <select id="isUserExist" resultType="java.lang.Integer">
+        select count(1)
+        from user
+        where username = #{username}
+    </select>
+    <select id="findUserByUsername" resultType="com.mcug.minichat.entrance.entity.User">
+        select *
+        from user
+        where username = #{username}
+    </select>
+</mapper>
