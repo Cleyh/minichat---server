@@ -1,4 +1,4 @@
-package com.mcug.minichat.chatService.dto;
+package com.mcug.minichat.chatProcessService.dto;
 
 import lombok.Data;
 

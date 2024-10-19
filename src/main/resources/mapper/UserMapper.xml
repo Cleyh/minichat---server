@@ -11,11 +11,11 @@
     <select id="isUserExist" resultType="java.lang.Integer">
         select count(1)
         from user
-        where username = #{username}
+        where user_name = #{username}
     </select>
-    <select id="findUserByUsername" resultType="com.mcug.minichat.entrance.entity.User">
+    <select id="findUserByUsername" resultType="com.mcug.minichat.utils.entity.User">
         select *
         from user
-        where username = #{username}
+        where user_name = #{username}
     </select>
 </mapper>

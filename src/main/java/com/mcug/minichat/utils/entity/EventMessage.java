@@ -1,21 +1,21 @@
-package com.mcug.minichat.utils.globeMessage;
+package com.mcug.minichat.utils.entity;
 
 import lombok.Data;
 
 @Data
 public class EventMessage {
-    String queue;
+    String eventName;
     String message;
     Object data;
 
     public EventMessage() {
-        this.queue = "";
+        this.eventName = "";
         this.message = "";
         this.data = null;
     }
 
-    public EventMessage setQueue(String queue) {
-        this.queue = queue;
+    public EventMessage setEventName(String eventName) {
+        this.eventName = eventName;
         return this;
     }
 

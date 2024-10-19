@@ -11,6 +11,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     private TokenInterceptor tokenInterceptor;
     @Override
     public void addInterceptors(org.springframework.web.servlet.config.annotation.InterceptorRegistry registry) {
-        registry.addInterceptor(tokenInterceptor).addPathPatterns("/api/**");
+//        registry.addInterceptor(tokenInterceptor).addPathPatterns("/api/**");
     }
 }

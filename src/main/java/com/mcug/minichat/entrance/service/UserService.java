@@ -2,7 +2,7 @@ package com.mcug.minichat.entrance.service;
 
 import com.mcug.minichat.entrance.dto.LoginDTO;
 import com.mcug.minichat.entrance.dto.RegisterDTO;
-import com.mcug.minichat.entrance.entity.User;
+import com.mcug.minichat.utils.entity.User;
 import com.mcug.minichat.entrance.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +23,8 @@ public class UserService {
     }
 
     public UUID register(RegisterDTO registerDTO) {
-        UUID userId = generateUUID(registerDTO.getUsername());
-        User newUser = new User(userId, registerDTO.getUsername(), registerDTO.getPassword());
+        UUID userId = generateUUID(registerDTO.getUserName());
+        User newUser = new User(userId, registerDTO.getUserName(), registerDTO.getPassword());
         userMapper.insertUser(newUser);
         return userId;
     }
@@ -41,7 +41,7 @@ public class UserService {
     }
 
     public User login(LoginDTO loginDTO) {
-        User user = userMapper.findUserByUsername(loginDTO.getUsername());
+        User user = userMapper.findUserByUsername(loginDTO.getUserName());
         if (user != null && user.getUserPassword().equals(loginDTO.getPassword()))
             return user;
         return null;

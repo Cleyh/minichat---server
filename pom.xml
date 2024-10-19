@@ -97,7 +97,6 @@
 			<version>1.18.32</version>
 			<scope>provided</scope>
 		</dependency>
-
 		<!-- Java Bean Validation API依赖 -->
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -116,14 +115,13 @@
 			<artifactId>jakarta.persistence-api</artifactId>
 			<version>3.2.0</version>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework.amqp</groupId>
-            <artifactId>spring-rabbit</artifactId>
-            <version>2.4.6</version>
-        </dependency>
-
-
-    </dependencies>
+		<!-- https://mvnrepository.com/artifact/org.springframework.amqp/spring-rabbit -->
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+			<version>3.1.7</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>

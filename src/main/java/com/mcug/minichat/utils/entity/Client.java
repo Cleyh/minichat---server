@@ -1,4 +1,4 @@
-package com.mcug.minichat.clientManager.entity;
+package com.mcug.minichat.utils.entity;
 
 import lombok.Data;
 import org.springframework.web.socket.WebSocketSession;

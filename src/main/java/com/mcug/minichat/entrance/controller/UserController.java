@@ -2,8 +2,8 @@ package com.mcug.minichat.entrance.controller;
 
 import com.mcug.minichat.entrance.dto.LoginDTO;
 import com.mcug.minichat.entrance.dto.RegisterDTO;
-import com.mcug.minichat.entrance.entity.User;
-import com.mcug.minichat.entrance.message.EntranceEventService;
+import com.mcug.minichat.utils.entity.User;
+import com.mcug.minichat.entrance.event.EntranceEventService;
 import com.mcug.minichat.entrance.service.UserService;
 import com.mcug.minichat.utils.ApiResponse;
 import com.mcug.minichat.utils.TokenService;
@@ -27,13 +27,15 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<ApiResponse> register(@RequestBody RegisterDTO registerDTO) {
-        if (userService.isUserExist(registerDTO.getUsername()))
+        if (registerDTO.getUserName() == null || registerDTO.getPassword() == null)
+            return ResponseEntity.badRequest().body(ApiResponse.error("用户名或密码为空", null));
+        if (userService.isUserExist(registerDTO.getUserName()))
             return ResponseEntity.badRequest().body(ApiResponse.error("用户名已存在", null));
         UUID uuid = userService.register(registerDTO);
         return ResponseEntity.ok(ApiResponse.success("注册成功", uuid));
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<ApiResponse> login(@RequestBody LoginDTO loginDTO) {
         User user = userService.login(loginDTO);
         if (user == null)

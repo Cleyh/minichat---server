@@ -1,4 +1,4 @@
-package com.mcug.minichat.chatService.entity;
+package com.mcug.minichat.utils.entity;
 
 import lombok.Data;
 
@@ -7,6 +7,7 @@ public class ChatMessage {
     String senderId;
     String receiverId;
     String message;
+    long timeStamp;
 
     public ChatMessage setSenderId(String senderId) {
         this.senderId = senderId;
@@ -20,6 +21,11 @@ public class ChatMessage {
 
     public ChatMessage setMessage(String message) {
         this.message = message;
+        return this;
+    }
+
+    public ChatMessage setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
         return this;
     }
 }

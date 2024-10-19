@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mcug.minichat.chatProcessService.mapper.ChatProcessMapper">
+
+    <insert id="insertPrivateChatMessage">
+        insert into private_chat(time_stamp, sender_id, receive_id, message)
+        values (#{timeStamp}, #{senderId}, #{receiverId}, #{message})
+    </insert>
+    <insert id="insertPublicChatMessage">
+        insert into public_chat(time_stamp, sender_id, message)
+        values (#{timeStamp}, #{senderId}, #{message})
+    </insert>
+</mapper>

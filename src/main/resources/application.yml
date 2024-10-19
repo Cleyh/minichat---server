@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: MiniChat
+  datasource:
+    url: jdbc:mysql://110.42.109.6:10097/minichat
+    username: root
+    password: 16345125
+    hikari:
+      max-lifetime: 300000 # 30min
+      idle-timeout: 600000 # 10min
+      validation-timeout: 5000
+      keepalive-time: 600000 # 10min
+  jpa:
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      enabled: true
+  rabbitmq:
+    host: 110.42.109.6
+    port: 10103
+    username: rabbitmq
+    password: rabbitmq
+
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  #type-aliases-package: com.ecloud.chat.entity

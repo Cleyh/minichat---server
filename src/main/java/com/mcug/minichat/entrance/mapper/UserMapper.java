@@ -1,6 +1,6 @@
 package com.mcug.minichat.entrance.mapper;
 
-import com.mcug.minichat.entrance.entity.User;
+import com.mcug.minichat.utils.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
