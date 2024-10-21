@@ -6,11 +6,24 @@
 <mapper namespace="com.mcug.minichat.chatProcessService.mapper.ChatProcessMapper">
 
     <insert id="insertPrivateChatMessage">
-        insert into private_chat(time_stamp, sender_id, receive_id, message)
+        insert into private_chat(time_stamp, sender_id, receiver_id, message)
         values (#{timeStamp}, #{senderId}, #{receiverId}, #{message})
     </insert>
     <insert id="insertPublicChatMessage">
         insert into public_chat(time_stamp, sender_id, message)
         values (#{timeStamp}, #{senderId}, #{message})
     </insert>
+    <update id="refreshReceiveStatus">
+        update private_chat
+        set received = 1
+        where receiver_id = #{userId}
+          and received = 0
+    </update>
+    <select id="getUserLatestMessage" resultType="com.mcug.minichat.chatProcessService.dto.ChatMessageDTO">
+        select *
+        from private_chat
+        where receiver_id = #{userId}
+          and received = 0
+        order by time_stamp
+    </select>
 </mapper>

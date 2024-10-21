@@ -83,6 +83,9 @@ public class ClientService {
 
     public static void sendPublicChatToClient(ChatMessage chatMessage) throws IOException {
         for (Client client : clientPools.values()) {
+            if (client.getUserId().equals(chatMessage.getSenderId())) {
+                continue;
+            }
             ClientMessage clientMessage = new ClientMessage()
                     .setSenderUserId(chatMessage.getSenderId())
                     .setReceiveUserId(GlobalName.CHAT_PUBLIC_RECEIVER)
